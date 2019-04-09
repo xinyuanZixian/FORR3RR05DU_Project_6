@@ -1,6 +1,6 @@
 import timeit
 
-triangle = open("p067_triangle.txt","r")
+triangle = open("p067_triangle.txt")
 tree = [[int(y) for y in x.rstrip("\n").split(" ")] for x in triangle]
 cache = []
 start = timeit.timeit()
