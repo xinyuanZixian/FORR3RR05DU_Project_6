@@ -1,9 +1,6 @@
-import timeit
-
 triangle = open("p067_triangle.txt")
 tree = [[int(y) for y in x.rstrip("\n").split(" ")] for x in triangle]
 cache = []
-start = timeit.timeit()
 
 def maximumPathSum(tree, depth):
     if depth >= 0:
@@ -15,7 +12,5 @@ def maximumPathSum(tree, depth):
     else:
         return int(tree[0][0])
     
-s = maximumPathSum(tree, len(tree) - 1)
-end = timeit.timeit()
+print(maximumPathSum(tree, len(tree) - 1))
 
-print("%s found in %s seconds" % (s, end - start))
