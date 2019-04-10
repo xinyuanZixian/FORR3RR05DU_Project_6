@@ -1,16 +1,15 @@
 triangle = open("p067_triangle.txt")
-tree = [[int(y) for y in x.rstrip("\n").split(" ")] for x in triangle]
+lst = [[int(y) for y in x.rstrip("\n").split(" ")] for x in triangle]
 cache = []
 
-def maximumPathSum(tree, depth):
+def maximumPathSum(lst, depth):
     if depth >= 0:
-        for i in range(len(tree[depth]) - 1):
-            cache.append(max(tree[depth][i] + tree[depth - 1][i], tree[depth][i + 1] + tree[depth - 1][i]))
-        tree[depth - 1] = cache.copy()
+        for i in range(len(lst[depth]) - 1):
+            cache.append(max(lst[depth][i] + lst[depth - 1][i], lst[depth][i + 1] + lst[depth - 1][i]))
+        lst[depth - 1] = cache.copy()
         cache.clear()
-        return maximumPathSum(tree, depth - 1)
+        return maximumPathSum(lst, depth - 1)
     else:
-        return int(tree[0][0])
+        return int(lst[0][0])
     
-print(maximumPathSum(tree, len(tree) - 1))
-
+print(maximumPathSum(lst, len(lst) - 1))
